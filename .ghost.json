@@ -1,10 +1,10 @@
 {
   "development": {
-    "apiUrl": "https://gatsby.ghost.io",
-    "contentApiKey": "9cc5c67c358edfdd81455149d0"
+    "apiUrl": "https://hooshmand.net",
+    "contentApiKey": "a655674cd9edebab945756411e"
   },
   "production": {
-    "apiUrl": "https://gatsby.ghost.io",
-    "contentApiKey": "9cc5c67c358edfdd81455149d0"
+    "apiUrl": "https://hooshmand.net",
+    "contentApiKey": "a655674cd9edebab945756411e"
   }
 }
