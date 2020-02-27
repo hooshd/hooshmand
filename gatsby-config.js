@@ -77,7 +77,7 @@ module.exports = {
                     // Any additional optional fields
                     sampleRate: 5,
                     siteSpeedSampleRate: 10,
-                    cookieDomain: "hooshmand.net",
+                    cookieDomain: "auto",
                 },
         },
         `gatsby-plugin-sharp`,
