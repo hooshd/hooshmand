@@ -171,6 +171,17 @@ figcaption {
     text-align: center;
     margin-top: .5em;
 }
+.aboutgrid {
+    display: grid;
+    justify-content: space-between;
+    grid-gap: 30px;
+    grid-template-columns: 1fr 1fr;
+}
+@media (max-width:680px) {
+    .aboutgrid {
+        grid-template-columns: 1fr
+    }
+}
 *,
 *:before,
 *:after {
