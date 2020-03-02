@@ -1234,6 +1234,12 @@ h6 {
     opacity: .8;
 }
 
+@media screen and (max-width: 768px) {
+    .subscribe-overlay-description {
+        font-size: 1.6rem;
+    }
+}
+
 .subscribe-form form {
     display: flex;
     flex-direction: column;
@@ -1303,4 +1309,22 @@ h6 {
 .subscribe-form .error .message-error,
 .subscribe-form .invalid .message-error {
     display: block;
+}
+
+.subscribe-form .success .message-success {
+    color: darkgreen;
+    display: block;
+}
+
+.subscribe-form .loading .button-loader {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: inline-block;
+    margin-left: -19px;
+    transform: scale(.7);
+}
+
+.subscribe-form .loading .button-content {
+    visibility: hidden;
 }

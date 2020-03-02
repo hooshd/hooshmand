@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 
@@ -15,7 +15,65 @@ import { MetaData } from "../components/common/meta";
  */
 const Index = ({ data, location, pageContext }) => {
     const posts = data.allGhostPost.edges;
-    const author = data.ghostAuthor;
+    const author = data.ghostPage;
+    const [formState, setFormState] = useState("");
+    function processForm(e) {
+        e.preventDefault();
+
+        if (validateForm() === true) {
+            sendData();
+        } else {
+            // formAlert("Please fill out both fields.");
+            setFormState("error");
+        }
+    }
+
+    function sendData() {
+        // formAlert("One second...");
+        setFormState("loading");
+        var postURL = "https://hooks.zapier.com/hooks/catch/1963766/7ywzcv/";
+        var http = new XMLHttpRequest();
+        http.open("POST", postURL, true);
+        http.setRequestHeader(
+            "Content-type",
+            "application/x-www-form-urlencoded"
+        );
+        var params =
+            "first_name=" +
+            "" +
+            "&email_address=" +
+            document.forms["joinform"]["email_address"].value +
+            "&action=subscribe" +
+            "&source_url=" +
+            window.location.href;
+        http.send(params);
+        http.onload = function() {
+            // formAlert("Thank you, check your email!");
+            // document.getElementById("joinform").reset();
+            console.log("success");
+            setFormState("success");
+        };
+        http.onerror = function() {
+            console.log("error");
+            setFormState("error");
+        };
+    }
+
+    function validateForm() {
+        var returner = false;
+        var x =
+            // document.forms["joinform"]["first_name"].value.length *
+            document.forms["joinform"]["email_address"].value.length;
+        if (x !== 0) {
+            returner = true;
+        }
+        return returner;
+    }
+
+    function formAlert(text) {
+        document.getElementById("responsemsg").innerHTML =
+            "<br><p><em>" + text + "</em></p>";
+    }
     return (
         <>
             <MetaData location={location} />
@@ -24,15 +82,17 @@ const Index = ({ data, location, pageContext }) => {
                     <section className="aboutgrid">
                         <a className="post-card">
                             <h2 className="post-card-title">
-                                About {author.name}
+                                {author.meta_title}
                             </h2>
-                            <p className="post-card-excerpt">{author.bio}</p>
+                            <p className="post-card-excerpt">
+                                {author.meta_description}
+                            </p>
                         </a>
                         <a className="post-card">
                             <div
                                 className="post-card-image"
                                 style={{
-                                    "background-image": `url(${author.profile_image})`
+                                    "background-image": `url(${author.feature_image})`
                                 }}
                             ></div>
                         </a>
@@ -51,17 +111,25 @@ const Index = ({ data, location, pageContext }) => {
                             Stay up to date! Get posts delivered straight to
                             your inbox. Days of work go into each one.
                         </p>
-                        <form data-members-form="subscribe">
+                        <form
+                            id="joinform"
+                            data-members-form="subscribe"
+                            className={formState}
+                        >
                             <div className="form-group">
                                 <input
                                     className="subscribe-email"
                                     data-members-email=""
-                                    placeholder="youremail@example.com"
                                     autocomplete="false"
+                                    name="email_address"
+                                    id="email_address"
+                                    type="text"
+                                    placeholder="Your best email"
+                                    required
                                 />
                                 <button
                                     className="button primary"
-                                    type="submit"
+                                    onClick={e => processForm(e)}
                                 >
                                     <span className="button-content">
                                         Subscribe
@@ -109,7 +177,7 @@ C22.32,8.481,24.301,9.057,26.013,10.047z"
                                 <strong>Great!</strong> Check your inbox and
                                 click the link to confirm your subscription.
                             </div>
-                            <div class="message-error">
+                            <div class="message-error" id="responsemsg">
                                 Please enter a valid email address!
                             </div>
                         </form>
@@ -156,15 +224,13 @@ export const pageQuery = graphql`
                 }
             }
         }
-        ghostAuthor {
-            bio
-            facebook
-            name
-            slug
-            url
-            twitter
-            location
-            profile_image
+        ghostPage(slug: { eq: "about" }) {
+            meta_description
+            meta_title
+            og_title
+            og_image
+            og_description
+            feature_image
         }
     }
 `;
