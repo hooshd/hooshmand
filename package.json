@@ -1,13 +1,13 @@
 {
-  "name": "gatsby-starter-ghost",
-  "description": "A starter template to build lightning fast websites with Ghost and Gatsby",
+  "name": "hooshmand-net",
+  "description": "A modified Ghost and Gatsby starter based on the Casper template for Hooshmand.net",
   "version": "1.0.0",
   "license": "MIT",
-  "author": "Ghost Foundation",
-  "homepage": "https://docs.ghost.org/api/gatsby/",
+  "author": "Dana Hooshmand",
+  "homepage": "https://hooshmand.net/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tryghost/gatsby-starter-ghost.git"
+    "url": "git+https://github.com/hooshd/hooshmand"
   },
   "resolutions": {
     "sharp": "0.23.4"
@@ -16,11 +16,12 @@
     "node": ">= 8.9.0"
   },
   "bugs": {
-    "url": "https://github.com/tryghost/gatsby-starter-ghost/issues"
+    "url": "https://github.com/hooshd/hooshmand/issues"
   },
   "keywords": [
     "gatsby",
-    "ghost"
+    "ghost",
+    "hooshmand"
   ],
   "main": "n/a",
   "scripts": {
