@@ -1,10 +1,10 @@
 {
   "development": {
-    "apiUrl": "https://hooshmand.net",
+    "apiUrl": "https://admin.hooshmand.net",
     "contentApiKey": "a655674cd9edebab945756411e"
   },
   "production": {
-    "apiUrl": "https://hooshmand.net",
+    "apiUrl": "https://admin.hooshmand.net",
     "contentApiKey": "a655674cd9edebab945756411e"
   }
 }
