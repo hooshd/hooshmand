@@ -780,7 +780,7 @@ h6 {
 .site-banner {
     max-width: 80%;
     margin: 0 auto;
-    padding: 10vw 0;
+    padding: 3vw 0;
     text-align: center;
 }
 
@@ -788,7 +788,7 @@ h6 {
     margin: 0;
     padding: 0;
     color: #fff;
-    font-size: 4rem;
+    font-size: 7rem;
     line-height: 1.3em;
     text-align: center;
 }
@@ -1214,7 +1214,7 @@ h6 {
 .subscribe-overlay-title {
     display: inline-block;
     margin: 0 0 10px;
-    font-size: 5.2rem;
+    font-size: 3.5rem;
     line-height: 1.15em;
 }
 
