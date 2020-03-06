@@ -163,6 +163,10 @@ img {
     max-width: 100%;
 }
 
+.kg-gallery-image img {
+    height: auto;
+}
+
 html {
     box-sizing: border-box;
     font-family: sans-serif;
