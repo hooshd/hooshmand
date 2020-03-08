@@ -97,7 +97,6 @@ const Index = ({ data, location, pageContext }) => {
                             ></div>
                         </a>
                     </section>
-                    <hr></hr>
                 </div>
                 <div id="subscribe" style={{ padding: "0 !important" }}>
                     <div
