@@ -1,4 +1,3 @@
-# google.com, pub-7431795148670195, DIRECT, f08c47fec0942fa0
 # Mediavine Ads.txt v20200224
 mediavine.com, 7883, DIRECT, 1363c924529b3998
 aps.amazon.com, 38918095-8e45-4332-88bf-226b3514cb64, DIRECT
